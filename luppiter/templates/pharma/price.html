@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Selling Price</title>
+</head>
+<body>
+    <h1>Calculate Selling Price</h1>
+    {% if total_selling_price %}
+        <p>Total Selling Price: ${{ total_selling_price }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="pharmacist_id" value="{{ pharmacist_id }}">
+        {% for order in orders %}
+            <input type="checkbox" name="order_ids" value="{{ order.id }}"> {{ order.medicine.name }}<br>
+        {% endfor %}
+        <button type="submit">Checkout</button>
+    </form>
+</body>
+</html>

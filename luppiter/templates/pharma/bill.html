@@ -1,0 +1,25 @@
+<!-- Display the list of bills -->
+<h1>Bill</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Bill ID</th>
+            <th>Customer</th>
+            <th>Total Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bill in bills %}
+            <tr>
+                <td>{{ bill.pk }}</td>
+                <td>{{ bill.customer }}</td>
+                <td>{{ bill.total_amount }}</td>
+                <td>
+                    <a href="{% url 'bill_detail' bill.pk %}">View</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'add_bill' %}">Add Bill</a>

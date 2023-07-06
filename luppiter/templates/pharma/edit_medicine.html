@@ -1,0 +1,22 @@
+{% extends 'partials/base.html' %}
+{% block title%}Edit Medicine Page {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="border bd-white p-3">
+                <h3>Edit Item</h3>
+                <hr>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <a class="btn btn-secondary" href="{% url 'pharma-medicine_list'%}">Cancel</a>
+                    <input class="btn btn-info" type="submit" value="Edit" >
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

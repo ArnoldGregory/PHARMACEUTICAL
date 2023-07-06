@@ -1,0 +1,7 @@
+<!-- Form to make a sale -->
+<h1>Make Sale</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add to Cart</button>
+</form>

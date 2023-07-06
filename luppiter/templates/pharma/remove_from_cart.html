@@ -1,0 +1,8 @@
+<h1>Remove from Cart</h1>
+
+<p>Are you sure you want to remove {{ cart_item.medicine.name }} from your cart?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Remove</button>
+</form>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pharmacy Sales</title>
+    <!-- Include CSS styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Add your custom CSS styles here */
+        /* ... */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pharmacy Sales</h1>
+        </header>
+
+        <div class="search-section">
+            <input type="text" id="search-input" placeholder="Search for medicines...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="medicines-list">
+            <!-- Display search results dynamically here -->
+        </div>
+
+        <div class="cart-section">
+            <h2>Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medicine</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart">
+                    <!-- Display cart items dynamically here -->
+                </tbody>
+            </table>
+
+            <div class="cart-total">
+                <h3>Total: <span id="cart-total-amount">0.00</span></h3>
+            </div>
+
+            <button id="checkout-btn">Checkout</button>
+        </div>
+
+        <div class="checkout-section">
+            <h2>Checkout</h2>
+            <form id="checkout-form" action="{% url 'pharma-process-checkout' %}" method="post">
+                {% csrf_token %}
+                <!-- Include payment method selection here -->
+                <div class="payment-methods">
+                    <h3>Select Payment Method:</h3>
+                    <input type="radio" id="credit-card" name="payment-method" value="credit-card">
+                    <label for="credit-card">Credit Card</label>
+                    <br>
+                    <input type="radio" id="cash-on-delivery" name="payment-method" value="cash-on-delivery">
+                    <label for="cash-on-delivery">Cash on Delivery</label>
+                    <br>
+                    <input type="radio" id="online-payment" name="payment-method" value="online-payment">
+                    <label for="online-payment">Online Payment</label>
+                    <!-- Add more payment methods if needed -->
+                </div>
+
+                <!-- Include payment details fields here -->
+                <div class="payment-details">
+                    <h3>Payment Details:</h3>
+                    <!-- Credit Card Details -->
+                    <div id="credit-card-details" class="payment-method-details">
+                        <input type="text" id="card-number" name="card-number" placeholder="Card Number">
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="Expiry Date">
+                        <input type="text" id="cvv" name="cvv" placeholder="CVV">
+                    </div>
+
+                    <!-- Cash on Delivery Details -->
+                    <div id="cash-on-delivery-details" class="payment-method-details">
+                        <p>Payment will be made upon delivery.</p>
+                    </div>
+
+                    <!-- Online Payment Details -->
+                    <div id="online-payment-details" class="payment-method-details">
+                        <input type="text" id="payment-provider" name="payment-provider" placeholder="Payment Provider">
+                        <input type="text" id="payment-token" name="payment-token" placeholder="Payment Token">
+                    </div>
+                </div>
+
+                <button type="submit" id="confirm-order-btn">Confirm Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include JavaScript libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        // Add your JavaScript code here
+        // ...
+    </script>
+</body>
+</html>

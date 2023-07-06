@@ -1,0 +1,24 @@
+<!-- Display the details of a bill -->
+<h1>Bill Detail</h1>
+<p>Bill ID: {{ bill.pk }}</p>
+<p>Customer: {{ bill.customer }}</p>
+<p>Total Amount: {{ bill.total_amount }}</p>
+<h2>Bill Items</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Medicine</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in bill.billitem_set.all %}
+            <tr>
+                <td>{{ item.medicine }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.unit_price }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

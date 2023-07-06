@@ -1,0 +1,156 @@
+{% extends 'partials/base.html' %}
+{% block title%}Medicine Page {% endblock %}
+
+
+{% block content %}
+<style>
+    .container {
+        margin: 20px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th {
+        background-color: #343a40;
+        color: #fff;
+    }
+
+    .table tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .add-form {
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    .form-group label {
+        width: 120px;
+    }
+
+    .form-group input {
+        flex-grow: 1;
+        padding: 6px;
+    }
+
+    .add-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .add-button:hover {
+        background-color: #45a049;
+    }
+
+    .upload-button {
+        background-color: #007bff;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .upload-button:hover {
+        background-color: #0056b3;
+    }
+
+    .resizable-input {
+        resize: vertical;
+        min-height: 40px;
+    }
+</style>
+
+<div class="container">
+    <h2>Add Medicine</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+
+        <input class="btn btn-success btn-block" type="submit" value="Add Medicine">
+    </form>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Medical Type</th>
+                <th scope="col">Sell Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">In Stock</th>
+            </tr>
+        </thead>
+        <tbody id="medicineTable">
+            {% if items %}
+            {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.Medical_type }}</td>
+                <td>{{ item.sell_price }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.in_stock }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{% url 'pharma-edit_medicine' item.id %}">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'pharma-delete_medicine' item.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="5">No medicines found.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.getElementById("medicineForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const medicalType = document.getElementById("medicalType").value;
+        const sellPrice = document.getElementById("sellPrice").value;
+        const description = document.getElementById("description").value;
+        const inStock = document.getElementById("inStock").value;
+
+        // Append new row to the table
+        const medicineTable = document.getElementById("medicineTable");
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+            <td>${name}</td>
+            <td>${medicalType}</td>
+            <td>${sellPrice}</td>
+            <td>${description}</td>
+            <td>${inStock}</td>
+        `;
+        medicineTable.appendChild(newRow);
+
+        // Reset the form
+        document.getElementById("medicineForm").reset();
+    });
+
+    document.querySelector(".upload-button").addEventListener("click", function () {
+        // Handle upload Excel functionality here
+        alert("Upload Excel functionality will be implemented here.");
+    });
+</script>
+
+
+{% endblock %}

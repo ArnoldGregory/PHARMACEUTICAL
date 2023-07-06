@@ -1,0 +1,7 @@
+<!-- Form to add a new bill -->
+<h1>Add Bill</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add</button>
+</form>
