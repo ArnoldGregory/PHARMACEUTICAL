@@ -1,0 +1,164 @@
+body{
+  background: rgb(230, 227, 227);
+}
+
+.my-card:hover{
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out
+
+}
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 280px;
+  background-color: #f1f5f8;
+  height: 100vh;
+  padding: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.closed {
+  transform: translateX(-280px);
+}
+
+.sidebar__header {
+  margin-bottom: 30px;
+}
+
+.sidebar__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #374151;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.sidebar__icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.sidebar__logo-name {
+  font-size: 18px;
+}
+
+.sidebar__menu {
+  margin-bottom: 30px;
+}
+
+.sidebar__list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar__item {
+  margin-bottom: 10px;
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #4b5563;
+  transition: color 0.3s ease;
+}
+
+.sidebar__link:hover {
+  color: #1e40af;
+}
+
+.sidebar__icon,
+.sidebar__dropdown-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.sidebar__name {
+  font-size: 16px;
+}
+
+.sidebar__sublist {
+  list-style: none;
+  margin-left: 20px;
+  padding: 0;
+}
+
+.sidebar__subitem {
+  margin-bottom: 5px;
+}
+
+.sidebar__sublink {
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.sidebar__sublink:hover {
+  color: #1e40af;
+}
+
+.sidebar__logout {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #6b7280;
+  transition: color 0.3s ease;
+}
+
+.sidebar__logout:hover {
+  color: #1e40af;
+}
+.chart-container canvas {
+    width: calc(50% - 10px);
+    height: 200px; /* Adjust the height as desired */
+}

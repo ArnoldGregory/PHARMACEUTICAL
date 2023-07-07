@@ -1,0 +1,50 @@
+{% extends 'partials/base.html' %}
+{% block title%}Stock_Table Page {% endblock %}
+
+{% block content %}
+ <html>
+<head>
+  <title>Medicine Stock Table</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* CSS styles for table omitted for brevity */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center text-info">Medicine Stock Table</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Medicine Name</th>
+          <th>Quantity</th>
+          <th>Manufacturer</th>
+          <th>Expiry Date</th>
+          <th>Batch Number</th>
+          <th>Price</th>
+          <th>Supplier</th>
+          <th>Location</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for medicine in medicines %}
+          <tr>
+            <td>{{ medicine.medicine_name }}</td>
+            <td>{{ medicine.quantity }}</td>
+            <td>{{ medicine.manufacturer }}</td>
+            <td>{{ medicine.expiry_date }}</td>
+            <td>{{ medicine.batch_number }}</td>
+            <td>{{ medicine.price }}</td>
+            <td>{{ medicine.supplier }}</td>
+            <td>{{ medicine.location }}</td>
+            <td>{{ medicine.status }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
+
+{% endblock %}

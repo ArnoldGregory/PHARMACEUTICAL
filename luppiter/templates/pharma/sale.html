@@ -1,0 +1,123 @@
+{% extends 'partials/base.html' %}
+{% block title%}Sale Page {% endblock %}
+
+
+{% block content %}
+<html>
+<head>
+    <title>Sales Page</title>
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .chart {
+            width: 400px;
+            height: 300px;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Sales Overview</h2>
+
+    <div class="chart-container">
+        <canvas id="revenueChart" class="chart"></canvas>
+        <canvas id="unitsSoldChart" class="chart"></canvas>
+    </div>
+
+    <h3>Yearly Sales</h3>
+
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Revenue</th>
+            <th>Units Sold</th>
+            <th>Average Price</th>
+        </tr>
+        <tr>
+            <td>2021</td>
+            <td>$500,000</td>
+            <td>2,000</td>
+            <td>$250</td>
+        </tr>
+        <tr>
+            <td>2020</td>
+            <td>$450,000</td>
+            <td>1,800</td>
+            <td>$250</td>
+        </tr>
+        <!-- Add more rows for each year -->
+    </table>
+
+    <h3>Monthly Sales</h3>
+
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Revenue</th>
+            <th>Units Sold</th>
+            <th>Average Price</th>
+        </tr>
+        <tr>
+            <td>January</td>
+            <td>$40,000</td>
+            <td>200</td>
+            <td>$200</td>
+        </tr>
+        <tr>
+            <td>February</td>
+            <td>$38,000</td>
+            <td>190</td>
+            <td>$200</td>
+        </tr>
+        <!-- Add more rows for each month -->
+    </table>
+
+    <script>
+        // Revenue Chart
+        var revenueChart = new Chart(document.getElementById('revenueChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [40000, 38000, 42000, 38000, 41000, 40000],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Units Sold Chart
+        var unitsSoldChart = new Chart(document.getElementById('unitsSoldChart'), {
+            type: 'bar',
+</script>
+{% endblock %}

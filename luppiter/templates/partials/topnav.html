@@ -1,0 +1,73 @@
+
+{% block title %}{% endblock %}
+
+
+
+
+<div class="row">
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card-body">
+            <a class="text-decoration-none text-dark" href="{% url 'pharma-customer' %}">
+                <div class="card my-card shadow text-center p-3">
+                    <h4>Total Customers <i class="fas fa-box"></i></h4>
+                    <h3>124</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card-body">
+            <a class="text-decoration-none text-dark" href="{% url 'pharma-sale' %}">
+                <div class="card my-card shadow text-center p-3">
+                    <h4>Total Sales <i class="fas fa-shopping-cart"></i></h4>
+                    <h3>650</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card-body">
+            <a class="text-decoration-none text-dark" href="{% url 'pharma-drugs_out' %}">
+                <div class="card my-card shadow text-center p-3">
+                    <h4>Drugs Out of Stock <i class="fas fa-pills"></i></h4>
+                    <h3>102</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card-body">
+            <a class="text-decoration-none text-dark" href="{% url 'pharma-profit' %}">
+                <div class="card my-card shadow text-center p-3">
+                    <h4>Total Profit <i class="fas fa-money-bill"></i></h4>
+                    <h3>$25,000</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card-body">
+            <a class="text-decoration-none text-dark" href="{% url 'pharma-stock_table' %}">
+                <div class="card my-card shadow text-center p-3">
+                    <h4>Stock <i class="fas fa-clipboard-list"></i></h4>
+                    <h3>400</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card-body">
+            <a class="text-decoration-none text-dark" href="{% url 'pharma-drugs_added' %}">
+                <div class="card my-card shadow text-center p-3">
+                    <h4>Drugs Added <i class="fas fa-plus"></i></h4>
+                    <h3>80</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</div>

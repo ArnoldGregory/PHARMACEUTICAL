@@ -1,0 +1,65 @@
+
+{% block title%}Drugs_Out Page {% endblock %}
+
+{% block content %}
+{% load static %}
+
+<html>
+<head>
+    <title>Drugs Out of Stock</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Drugs Out of Stock</h2>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Drug Name</th>
+                    <th>Quantity</th>
+                    <th>Supplier</th>
+                    <th>Last Ordered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Drug A</td>
+                    <td>0</td>
+                    <td>Supplier X</td>
+                    <td>2023-06-10</td>
+                </tr>
+                <tr>
+                    <td>Drug B</td>
+                    <td>0</td>
+                    <td>Supplier Y</td>
+                    <td>2023-06-12</td>
+                </tr>
+                <!-- Add more rows for each out-of-stock drug -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
+
+{% endblock %}

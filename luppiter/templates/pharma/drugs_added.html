@@ -1,0 +1,29 @@
+{% extends 'partials/base.html' %}
+{% block title%}Drugs_Added Page {% endblock %}
+
+{% block content %}
+<h2>Drugs Added Table</h2>
+
+<table>
+    <tr>
+        <th>Drug Name</th>
+        <th>Quantity</th>
+        <th>Manufacturer</th>
+        <th>Expiry Date</th>
+    </tr>
+    <tr>
+        <td>Drug A</td>
+        <td>100</td>
+        <td>Manufacturer A</td>
+        <td>2023-08-31</td>
+    </tr>
+    <tr>
+        <td>Drug B</td>
+        <td>50</td>
+        <td>Manufacturer B</td>
+        <td>2024-02-15</td>
+    </tr>
+    <!-- Add more rows for each drug added -->
+</table>
+
+{% endblock %}

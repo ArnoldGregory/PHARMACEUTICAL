@@ -1,0 +1,31 @@
+{% extends 'partials/base.html' %}
+{% block title %} {% endblock %}
+{% load static %}
+
+
+{% block content %}
+
+
+<html>
+<head>
+    <title>Logout</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="alert alert-success" role="alert">
+            You have been logged out.
+        </div>
+        <a href="{% url 'user-login' %}">Login</a>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "{% url 'user-login' %}";
+        }, 3000);  // Redirect after 3 seconds (adjust the delay as needed)
+    </script>
+</body>
+</html>
+
+{% endblock %}

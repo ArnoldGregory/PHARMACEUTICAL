@@ -1,0 +1,30 @@
+{% extends 'partials/base.html' %}
+{% block title%}Medicine Page {% endblock %}
+
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col"> Name</th>
+        <th scope="col">Medical_type</th>
+        <th scope="col">Sell_Price</th>
+        <th scope="col">description</th>
+        <th scope="col">in_stock</th>
+    </tr>
+    <tr>
+        {% if medicines %}
+        {% for medicine in medicines %}
+    <tr>
+        <td>{{ medicine.name }}</td>
+        <td>{{ medicine.Medical_type }}</td>
+        <td>{{ medicine.sell_price }}</td>
+        <td>{{ medicine.description }}</td>
+        <td>{{ medicine.in_stock }}</td>
+    </tr>
+        {%endfor%}
+        {% endif %}
+    </tr>
+
+    </thead>
+</table>
+{% endblock%}
